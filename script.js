@@ -4,11 +4,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const taskList = document.getElementById("task-list"); // Selects the unordered list to display tasks
 
   function addTask() {
-    const taskText = taskInput.value.trim();
-    if (taskText === "") {
-      alert("Please enter a task.");
-      return;
+    const taskText = taskInput.value;
+
+    if (taskText !== '') {
+        const li = document.createElement('li'); // Create a new li element
+        li.textContent = taskText; // Set the textContent to taskText
+
+        const removeButton = document.createElement('button'); // Create a remove button
+        removeButton.textContent = 'Remove'; // Set the textContent to 'Remove'
+        removeButton.classList.add('remove-btn'); // Add a class to the remove button
+
+        removeButton.onclick = function() {
+            taskList.removeChild(li); // Remove the li element when clicked
+        };
+
+        li.appendChild(removeButton); // Append the remove button to the li element
+        taskList.appendChild(li); // Append the li element to the taskList
+
+        taskInput.value = ''; // Clear the task input field
     }
+}
 
     const listItem = document.createElement("li");
     listItem.textContent = taskText;
@@ -27,10 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
     taskInput.value = "";
   }
 
-  addButton.addEventListener("click", addTask);
+   addButton.addEventListener("click", addTask),
   taskInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       addTask();
     }
-  });
-});
+  }));
+
