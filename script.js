@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const addButton = document.getElementById("add-task-button"); // Selects the "Add Task" button
+  const addButton = document.getElementById("add-task-btn"); // Selects the "Add Task" button
   const taskInput = document.getElementById("task-input"); // Selects the input field where users enter tasks
   const taskList = document.getElementById("task-list"); // Selects the unordered list to display tasks
 
